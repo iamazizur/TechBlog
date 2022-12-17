@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name="TechBlog">
+                
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                
+        <dependent-module archiveName="mysql-connector-j-8.0.31.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/azizurrahman/Desktop/jdbc/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar">
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+        <dependent-module archiveName="jstl-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib//Users/azizurrahman/Desktop/jdbc/for web inf/jstl-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                
+        <property name="context-root" value="TechBlog"/>
+                
+        <property name="java-output-path" value="/TechBlog/build/classes"/>
+            
+    </wb-module>
+    
+</project-modules>
