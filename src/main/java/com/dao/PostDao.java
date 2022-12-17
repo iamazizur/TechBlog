@@ -7,8 +7,8 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Date;
 
+import com.entities.Post;
 
-import com.helper.ConnectionProvider;
 
 public class PostDao {
 	private Connection connection;
@@ -18,32 +18,25 @@ public class PostDao {
 		this.connection = connection;
 	}
 
-	public boolean createPost(String title,String content,String code,int catId) {
+	public String createPost(Post post) {
 		try {
-			
-			Instant instant = new Date().toInstant();
-			Timestamp postDate = Timestamp.from(instant);
-			
-			
-			connection = ConnectionProvider.getConnection();
-			
 			
 			String query = "INSERT INTO posts(title,content,code,postDate,catId) values(?,?,?,?,?);";
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, title);
-			preparedStatement.setString(2, content);
-			preparedStatement.setString(3, code);
-			preparedStatement.setTimestamp(4, postDate);
-			preparedStatement.setInt(5, catId);
+			preparedStatement.setString(1, post.getTitle());
+			preparedStatement.setString(2, post.getContent());
+			preparedStatement.setString(3, post.getCode());
+			preparedStatement.setTimestamp(4, post.getPostDate());
+			preparedStatement.setInt(5, post.getCatid());
 			
-			ResultSet result = preparedStatement.executeQuery();
-			return result.first();
+			preparedStatement.execute();
+			return "true";
 			
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return e.getMessage();
 		}
 	}
 

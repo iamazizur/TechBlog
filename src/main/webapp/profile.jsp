@@ -193,12 +193,12 @@ if (currUser == null)
 					<div class="modal-body">
 
 						<!-- form -->
-						<form>
+						<form action="AddPost" id="form_add_post">
 
 							<div class="mb-3 form-group">
 								<label for="post_catId" class="form-label">Category</label>
 								<select
-									class="form-control" id="post_catId">
+									class="form-control" id="post_catId" name="post_catId">
 									<%-- <%
 									CategoryDao dao = new CategoryDao(ConnectionProvider.getConnection());
 									ArrayList<Category> categories = dao.getCategories();
@@ -276,5 +276,6 @@ if (currUser == null)
 	<%@include file="scripts.jsp"%>
 	<script type="text/javascript" src="js/edit_user.js"></script>
 	<script type="text/javascript" src="js/categories.js"></script>
+	<script type="text/javascript" src="js/post.js"></script>
 </body>
 </html>

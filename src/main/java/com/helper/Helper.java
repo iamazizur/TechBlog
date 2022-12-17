@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 import java.io.InputStream;
-
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.Date;
 
 import javax.servlet.http.Part;
 
@@ -38,5 +40,11 @@ public class Helper {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public static Timestamp getCurrTimeStamp() {
+		Instant instant = new Date().toInstant();
+		Timestamp timestamp = Timestamp.from(instant);
+		return timestamp;
 	}
 }

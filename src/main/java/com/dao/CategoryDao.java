@@ -6,12 +6,7 @@ import java.sql.ResultSet;
 
 import java.util.ArrayList;
 
-import org.apache.tomcat.util.json.JSONParser;
-
 import com.entities.Category;
-import com.google.gson.Gson;
-import com.helper.ConnectionProvider;
-
 
 public class CategoryDao {
 	private Connection connection;
@@ -33,10 +28,10 @@ public class CategoryDao {
 		ArrayList<Category> result = new ArrayList<>();
 		try {
 			ResultSet resultSet = getAllRows();
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				int cid = resultSet.getInt("cid");
-				String title =  resultSet.getString("title");
-				String description =  resultSet.getString("description");
+				String title = resultSet.getString("title");
+				String description = resultSet.getString("description");
 				Category category = new Category(cid, title, description);
 				result.add(category);
 			}
@@ -46,15 +41,14 @@ public class CategoryDao {
 			return null;
 		}
 	}
-	
+
 	private ResultSet getAllRows() {
 		try {
 			String query = "SELECT * FROM categories";
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			ResultSet set = preparedStatement.executeQuery();
 			return set;
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
