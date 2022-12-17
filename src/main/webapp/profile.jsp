@@ -199,7 +199,7 @@ if (currUser == null)
 								<label for="post_catId" class="form-label">Category</label>
 								<select
 									class="form-control" id="post_catId">
-									<%
+									<%-- <%
 									CategoryDao dao = new CategoryDao(ConnectionProvider.getConnection());
 									ArrayList<Category> categories = dao.getCategories();
 
@@ -208,7 +208,7 @@ if (currUser == null)
 									<option value=<%=category.getCid() %>><%=category.getTitle()%></option>
 									<%
 									}
-									%>
+									%> --%>
 								</select>
 							</div>
 							<!--title  -->
@@ -275,5 +275,6 @@ if (currUser == null)
 
 	<%@include file="scripts.jsp"%>
 	<script type="text/javascript" src="js/edit_user.js"></script>
+	<script type="text/javascript" src="js/categories.js"></script>
 </body>
 </html>

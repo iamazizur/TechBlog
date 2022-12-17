@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 
 import java.util.ArrayList;
 
+import org.apache.tomcat.util.json.JSONParser;
 
 import com.entities.Category;
+import com.google.gson.Gson;
 import com.helper.ConnectionProvider;
 
 
@@ -22,6 +24,9 @@ public class CategoryDao {
 //		CategoryDao dao = new CategoryDao(connection);
 //		ArrayList<Category> response = dao.getCategories();
 //		System.out.println(response);
+//		Gson gson = new Gson();
+//		String json = gson.toJson(response);
+//		System.out.println(json);
 //	}
 
 	public ArrayList<Category> getCategories() {
