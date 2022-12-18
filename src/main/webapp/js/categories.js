@@ -2,15 +2,13 @@
 
 $(document).ready(function() {
 
-	getCategories.then((data) => {
-		console.log('categories data found: ')
-		console.log(data)
-		addOptions(data)
-	}).error((e) => console.log(e))
+	getCategories()
+		.then((data) => addOptions(data))
+		.catch((e) => console.log(e))
 
 })
 
-const getCategories = new Promise(function(resolve, reject) {
+const getCategories = () => new Promise(function(resolve, reject) {
 	$.ajax({
 		url: 'Categories',
 		type: 'POST',
@@ -32,7 +30,7 @@ const getCategories = new Promise(function(resolve, reject) {
 
 function addOptions(categories) {
 	const select = document.getElementById('post_catId');
-	let arr = []
+
 	categories.forEach((category) => {
 		const option = document.createElement('option')
 		option.value = category['cid']

@@ -4,9 +4,10 @@ $(document).ready(function() {
 	$('#form_add_post').submit(function(event) {
 		event.preventDefault();
 		const form = this;
+		
 		submitPostToDB(form).then((data) => {
 			alert('post added successfully');
-			console.log(data);
+			
 		}).catch((e) => {
 			alert('some error occured : ' + e[0])
 			console.log(e);
@@ -16,6 +17,7 @@ $(document).ready(function() {
 
 const submitPostToDB = (form) => new Promise((resolve, reject) => {
 	const formData = new FormData(form);
+	
 	const actionUrl = form.getAttribute('action')
 	$.ajax({
 		url: actionUrl,

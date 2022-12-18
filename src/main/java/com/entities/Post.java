@@ -9,28 +9,38 @@ public class Post {
 	private String content;
 	private String code;
 	private Timestamp postDate;
-	
+	private int userId;
 	public Post() {
 		
 	}
 
-	public Post(int catid, String title, String content, String code, Timestamp postDate) {
+	public Post(int catid, int userId, String title, String content, String code, Timestamp postDate) {
 		super();
 		this.catid = catid;
+		this.title = title;
+		this.content = content;
+		this.code = code;
+		this.postDate = postDate;
+		this.userId = userId;
+	}
+
+	public Post(int pid, int catid, int userId, String title, String content, String code, Timestamp postDate) {
+		super();
+		this.pid = pid;
+		this.catid = catid;
+		this.userId = userId;
 		this.title = title;
 		this.content = content;
 		this.code = code;
 		this.postDate = postDate;
 	}
 
-	public Post(int pid, int catid, String title, String content, String code, Timestamp postDate) {
-		super();
-		this.pid = pid;
-		this.catid = catid;
-		this.title = title;
-		this.content = content;
-		this.code = code;
-		this.postDate = postDate;
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public int getPid() {

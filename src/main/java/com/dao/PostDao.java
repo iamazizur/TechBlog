@@ -21,13 +21,14 @@ public class PostDao {
 	public String createPost(Post post) {
 		try {
 			
-			String query = "INSERT INTO posts(title,content,code,postDate,catId) values(?,?,?,?,?);";
+			String query = "INSERT INTO posts(title,content,code,postDate,catId,userId) values(?,?,?,?,?,?);";
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, post.getTitle());
 			preparedStatement.setString(2, post.getContent());
 			preparedStatement.setString(3, post.getCode());
 			preparedStatement.setTimestamp(4, post.getPostDate());
 			preparedStatement.setInt(5, post.getCatid());
+			preparedStatement.setInt(6, post.getUserId());
 			
 			preparedStatement.execute();
 			return "true";
