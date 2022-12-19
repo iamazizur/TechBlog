@@ -39,12 +39,7 @@ public class GetPosts extends HttpServlet {
 			
 			Connection connection = ConnectionProvider.getConnection();
 			PostDao dao = new PostDao(connection);
-			ArrayList<Post> posts = dao.getPosts(user);
-			if(posts == null) {
-				out.print("-1");
-				return;
-			}
-			UserPost userPost = new UserPost(posts, user);
+			UserPost userPost = dao.getUserPost(user);
 			response.setContentType("application/json");
 			Gson gson = new Gson();
 			String json = gson.toJson(userPost);
